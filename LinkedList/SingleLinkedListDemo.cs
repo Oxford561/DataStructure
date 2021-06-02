@@ -27,6 +27,7 @@ namespace DataStruct.LinkedList
             sll.Update(new HeroNode(3,"小林冲", "豹子头"));
             sll.Delete(4);
             sll.Show();
+            Console.WriteLine("单链表的长度："+ sll.Size());
         }
     }
 
@@ -127,6 +128,28 @@ namespace DataStruct.LinkedList
             {
                 Console.WriteLine("没有找到对应结点！");
             }
+        }
+
+        /// <summary>
+        /// 获取单链表的长度
+        /// </summary>
+        /// <returns></returns>
+        public int Size()
+        {
+            if (head.next == null)
+            {
+                Console.WriteLine("链表为空！");
+                return 0;
+            }
+
+            HeroNode temp = head;
+            int count = 0;
+            while(temp.next != null)
+            {
+                count++;
+                temp = temp.next;
+            }
+            return count;
         }
 
         public void Show()
