@@ -23,8 +23,9 @@ namespace DataStruct.LinkedList
             sll.InsertByOrder(node4);
             sll.InsertByOrder(node2);
             sll.InsertByOrder(node3);
-            sll.InsertByOrder(node3);
 
+            sll.Update(new HeroNode(3,"小林冲", "豹子头"));
+            sll.Delete(4);
             sll.Show();
         }
     }
@@ -68,6 +69,63 @@ namespace DataStruct.LinkedList
             {
                 heroNode.next = temp.next;
                 temp.next = heroNode;
+            }
+        }
+
+        public void Update(HeroNode newHeroNode)
+        {
+            if (head.next == null)
+            {
+                Console.WriteLine("链表为空！");
+                return;
+            }
+            HeroNode temp = head.next;
+            bool flag = false;
+            while (temp != null)
+            {
+                if(temp.no == newHeroNode.no)
+                {
+                    flag = true;
+                    break;
+                }
+                temp = temp.next;
+            }
+            if (flag)
+            {
+                temp.name = newHeroNode.name;
+                temp.nickName = newHeroNode.nickName;
+            }
+            else
+            {
+                Console.WriteLine("没有找到对应结点！");
+            }
+        }
+
+        public void Delete(int no)
+        {
+            if (head.next == null)
+            {
+                Console.WriteLine("链表为空！");
+                return;
+            }
+            HeroNode temp = head;
+            bool flag = false;
+            while(temp.next != null)
+            {
+                if(temp.next.no == no)
+                {
+                    flag = true;
+                    break;
+                }
+                temp = temp.next;
+            }
+            if (flag)
+            {
+                temp.next = temp.next.next;
+            }
+            else
+            {
+                Console.WriteLine("没有找到对应结点！");
             }
         }
 
