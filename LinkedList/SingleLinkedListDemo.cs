@@ -28,6 +28,7 @@ namespace DataStruct.LinkedList
             sll.Delete(4);
             sll.Show();
             Console.WriteLine("单链表的长度："+ sll.Size());
+            Console.WriteLine(sll.FindLastIndexNode(1));
         }
     }
 
@@ -150,6 +151,27 @@ namespace DataStruct.LinkedList
                 temp = temp.next;
             }
             return count;
+        }
+
+        public HeroNode FindLastIndexNode(int k)
+        {
+            if (head.next == null)
+            {
+                Console.WriteLine("链表为空！");
+                return null;
+            }
+
+            int size = Size();
+            if(k <= 0 ||k > size)
+            {
+                return null;
+            }
+            HeroNode cur = head.next;
+            for (int i = 0; i < size - k; i++)
+            {
+                cur = cur.next;
+            }
+            return cur;
         }
 
         public void Show()
