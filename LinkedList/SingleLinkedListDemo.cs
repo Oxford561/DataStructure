@@ -29,6 +29,8 @@ namespace DataStruct.LinkedList
             sll.Show();
             Console.WriteLine("单链表的长度："+ sll.Size());
             Console.WriteLine(sll.FindLastIndexNode(1));
+            sll.Reverse();
+            sll.Show();
         }
     }
 
@@ -172,6 +174,25 @@ namespace DataStruct.LinkedList
                 cur = cur.next;
             }
             return cur;
+        }
+
+        public void Reverse()
+        {
+            if(head.next == null || head.next.next == null)
+            {
+                return;
+            }
+            HeroNode cur = head.next;
+            HeroNode next = null;
+            HeroNode reverseHead = new HeroNode();
+            while(cur != null)
+            {
+                next = cur.next;
+                cur.next = reverseHead.next;
+                reverseHead.next = cur;
+                cur = next;
+            }
+            head.next = reverseHead.next;
         }
 
         public void Show()
