@@ -25,12 +25,13 @@ namespace DataStruct.LinkedList
             sll.InsertByOrder(node3);
 
             sll.Update(new HeroNode(3,"小林冲", "豹子头"));
-            sll.Delete(4);
+            //sll.Delete(4);
             sll.Show();
-            Console.WriteLine("单链表的长度："+ sll.Size());
-            Console.WriteLine(sll.FindLastIndexNode(1));
-            sll.Reverse();
-            sll.Show();
+            //Console.WriteLine("单链表的长度："+ sll.Size());
+            //Console.WriteLine(sll.FindLastIndexNode(1));
+            //sll.Reverse();
+            //sll.Show();
+            sll.ReversePrint();
         }
     }
 
@@ -193,6 +194,27 @@ namespace DataStruct.LinkedList
                 cur = next;
             }
             head.next = reverseHead.next;
+        }
+
+        public void ReversePrint()
+        {
+            if (head.next == null)
+            {
+                Console.WriteLine("链表为空！");
+                return;
+            }
+            Stack<HeroNode> stack = new Stack<HeroNode>();
+            HeroNode cur = head.next;
+            while(cur != null)
+            {
+                stack.Push(cur);
+                cur = cur.next;
+            }
+
+            while(stack.Count > 0)
+            {
+                Console.WriteLine(stack.Pop());
+            }
         }
 
         public void Show()
