@@ -8,7 +8,7 @@ namespace DataStruct.Stack
     {
         public static void Main(string[] args)
         {
-            string expression = "8+2*6-2";
+            string expression = "800+2*6-20";
             ArrayStack2 numStack = new ArrayStack2(10);
             ArrayStack2 operStack = new ArrayStack2(10);
             int index = 0;
@@ -17,6 +17,7 @@ namespace DataStruct.Stack
             int num1;
             int num2;
             int res;
+            string keepNum = "";
             while (true)
             {
                 string flag = expression.Substring(index, 1);
@@ -46,7 +47,18 @@ namespace DataStruct.Stack
                 }
                 else
                 {
-                    numStack.Push((int)Char.GetNumericValue(ch));
+                    keepNum += ch;
+                    if(index == expression.Length - 1)
+                    {
+                        numStack.Push(int.Parse(keepNum));
+                    }
+                    else
+                    {
+                        if (operStack.IsOper(Char.Parse(expression.Substring(index + 1, 1)))){
+                            numStack.Push(int.Parse(keepNum));
+                            keepNum = "";
+                        }
+                    }
                 }
                 index++;
                 if (index >= expression.Length)
