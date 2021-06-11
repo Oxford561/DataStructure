@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace DataStruct.Stack
 {
@@ -8,16 +9,16 @@ namespace DataStruct.Stack
     {
         public static void Main(string[] args)
         {
-            string expression = "1+((2+3)*4)-5";
-            List<string> infixExpressionList = ToInfixExpressionList(expression);
+            //string expression = "1+((2+3)*4)-5";
+            //List<string> infixExpressionList = ToInfixExpressionList(expression);
 
 
             // 定义逆波兰表达式,为了方便，数字和符号用空格隔开
             // （3+4）*5-6   =》 3 4 + 5 * 6 - 
-            //string suffixExpression = "3 4 + 5 * 6 - ";
-            //List<string> rpnList = GetListString(suffixExpression);
-            //int res = Calculate(rpnList);
-            //Console.WriteLine("计算结果="+res);
+            string suffixExpression = "3 4 + 5 * 6 -";
+            List<string> rpnList = GetListString(suffixExpression);
+            int res = Calculate(rpnList);
+            Console.WriteLine("（3+4）*5-6 =" + res);
         }
 
         // 将中缀表达式转成对于的list
@@ -68,37 +69,57 @@ namespace DataStruct.Stack
             Stack<string> stack = new Stack<string>();
             foreach (string item in lst)
             {
-                // 多位数匹配
-                //if (item.matches("\\d+"))
-                //{
-                //    stack.Push(item);
-                //}
-                //else
-                //{
-                //    int num1 = int.Parse(stack.Pop());
-                //    int num2 = int.Parse(stack.Pop());
-                //    int res = 0;
-                //    if (item.Equals("+"))
-                //    {
-                //        res = num1 + num2;
-                //    }else if (item.Equals("-"))
-                //    {
-                //        res = num1 - num2;
-                //    }else if (item.Equals("*"))
-                //    {
-                //        res = num1 * num2;
-                //    }else if (item.Equals("/"))
-                //    {
-                //        res = num1 / num2;
-                //    }
-                //    else
-                //    {
-                //        throw new Exception("运算符有误！");
-                //    }
-                //    stack.Push(res.ToString());
-                //}
+                //多位数匹配
+                if (IsNumberic(item))
+                {
+                    stack.Push(item);
+                }
+                else
+                {
+                    int num1 = int.Parse(stack.Pop());
+                    int num2 = int.Parse(stack.Pop());
+                    int res = 0;
+                    if (item.Equals("+"))
+                    {
+                        res = num1 + num2;
+                    }
+                    else if (item.Equals("-"))
+                    {
+                        res = num2 - num1;
+                    }
+                    else if (item.Equals("*"))
+                    {
+                        res = num1 * num2;
+                    }
+                    else if (item.Equals("/"))
+                    {
+                        res = num1 / num2;
+                    }
+                    else
+                    {
+                        throw new Exception("运算符有误！");
+                    }
+                    stack.Push(res.ToString());
+                }
             }
             return int.Parse(stack.Pop());
         }
+
+
+        public static bool IsNumberic(string oText)
+        {
+            try
+            {
+                int var1 = Convert.ToInt32(oText);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
     }
+
+
 }
