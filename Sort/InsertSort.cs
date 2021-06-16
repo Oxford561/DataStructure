@@ -4,6 +4,7 @@ using System.Text;
 
 namespace DataStruct.Sort
 {
+    // O(n^2)
     public class InsertSort
     {
         public static void Main(string[] args)
@@ -19,7 +20,10 @@ namespace DataStruct.Sort
                     arr[insertIndex + 1] = arr[insertIndex];
                     insertIndex--;
                 }
-                arr[insertIndex + 1] = insertVal;
+                if(insertIndex + 1 != i)
+                {
+                    arr[insertIndex + 1] = insertVal;
+                }
             }
             Console.WriteLine("排序后：");
             for (int i = 0; i < arr.Length; i++)
