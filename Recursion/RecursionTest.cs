@@ -6,12 +6,12 @@ namespace DataStruct.Recursion
 {
     public class RecursionTest
     {
-        public static void Main(string[] args)
+        public static void Test()
         {
             Test(4);
             Factorial(4);
         }
-        
+
         //打印问题
         public static void Test(int n)
         {

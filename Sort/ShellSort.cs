@@ -6,7 +6,7 @@ namespace DataStruct.Sort
 {
     public class ShellSort
     {
-        public static void Main(string[] args)
+        public static void Test()
         {
             int[] arr = { 8, 9, 1, 7, 2, 3, 5, 4, 6, 0 };
             int temp = 0;
@@ -39,12 +39,12 @@ namespace DataStruct.Sort
                     temp = arr[j];
                     //if (arr[j] < arr[j - gap])
                     //{
-                        while(j-gap >=0 && temp < arr[j - gap])
-                        {
-                            arr[j] = arr[j - gap];
-                            j -= gap;
-                        }
-                        arr[j] = temp;
+                    while (j - gap >= 0 && temp < arr[j - gap])
+                    {
+                        arr[j] = arr[j - gap];
+                        j -= gap;
+                    }
+                    arr[j] = temp;
                     //}
                 }
             }

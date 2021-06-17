@@ -7,7 +7,7 @@ namespace DataStruct.Stack
 {
     public class PolandNotation
     {
-        public static void Main(string[] args)
+        public static void Test()
         {
             string expression = "1+((2+3)*4)-5";
             List<string> infixExpressionList = ToInfixExpressionList(expression);

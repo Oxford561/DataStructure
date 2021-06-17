@@ -6,7 +6,7 @@ namespace DataStruct.Sort
 {
     public class QuickSort
     {
-        public static void Main(string[] args)
+        public static void Test()
         {
             int[] arr = {-9,78,0,23,-567,70};
             quickSort(arr, 0, arr.Length - 1);

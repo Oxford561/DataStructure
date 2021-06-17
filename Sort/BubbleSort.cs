@@ -7,13 +7,13 @@ namespace DataStruct.Sort
     // O(n^2)
     public class BubbleSort
     {
-        public static void Main(string[] args)
+        public static void Test()
         {
             int[] arr = { 3, 9, -1, 10, -2 };
             int temp = 0;
             bool flag = false;
             // 理解不了就记住多次排序，第一次排序只是把最大的数排到最后
-            for (int i = 0; i < arr.Length-1; i++)
+            for (int i = 0; i < arr.Length - 1; i++)
             {
                 for (int j = 0; j < arr.Length - 1 - i; j++)
                 {
@@ -27,7 +27,7 @@ namespace DataStruct.Sort
                     }
                 }
                 // 排序过程中一次都没有发生交换
-                if(flag == false)
+                if (flag == false)
                 {
                     break;
                 }
@@ -36,7 +36,7 @@ namespace DataStruct.Sort
                     flag = false; // 为下次排序重置
                 }
             }
-            
+
             for (int i = 0; i < arr.Length; i++)
             {
                 Console.WriteLine(arr[i]);

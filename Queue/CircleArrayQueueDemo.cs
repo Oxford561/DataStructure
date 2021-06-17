@@ -6,7 +6,7 @@ namespace DataStruct.Queue
 {
     public class CircleArrayQueueDemo
     {
-        static void Main(string[] args)
+        public static void Test()
         {
             CircleArrayQueue aq = new CircleArrayQueue(4);
             aq.Enqueue(1);
@@ -28,7 +28,7 @@ namespace DataStruct.Queue
         }
     }
 
-    // 使用数组模拟队列
+    // 使用数组模拟环形队列
     class CircleArrayQueue
     {
         private int maxSize; //表示数组最大容量

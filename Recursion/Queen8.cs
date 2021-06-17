@@ -9,7 +9,7 @@ namespace DataStruct.Recursion
         static int max = 8;
         static int count = 0;
         static int[] arr = new int[max];
-        public static void Main(string[] args)
+        public static void Test()
         {
             Check(0);
             Console.WriteLine("八皇后解法： " + count);

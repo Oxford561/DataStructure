@@ -7,7 +7,7 @@ namespace DataStruct.Sort
     // O(n^2)
     public class InsertSort
     {
-        public static void Main(string[] args)
+        public static void Test()
         {
             int[] arr = { 101, 34, 119, 1, -1, 89 };
 
@@ -20,7 +20,7 @@ namespace DataStruct.Sort
                     arr[insertIndex + 1] = arr[insertIndex];
                     insertIndex--;
                 }
-                if(insertIndex + 1 != i)
+                if (insertIndex + 1 != i)
                 {
                     arr[insertIndex + 1] = insertVal;
                 }

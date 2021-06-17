@@ -6,7 +6,7 @@ namespace DataStruct.LinkedList
 {
     public class Josephu
     {
-        static void Main(string[] args)
+        public static void Test()
         {
             CircleSingleLinkedList csll = new CircleSingleLinkedList();
             csll.AddBoy(5);

@@ -6,7 +6,7 @@ namespace DataStruct.Stack
 {
     public class ArrayStackDemo
     {
-        static void Main(string[] args)
+        public static void Test()
         {
             ArrayStack stack = new ArrayStack(5);
             Console.WriteLine(stack.IsEmpty());

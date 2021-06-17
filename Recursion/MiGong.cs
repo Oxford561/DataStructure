@@ -6,7 +6,7 @@ namespace DataStruct.Recursion
 {
     public class MiGong
     {
-        public static void Main(string[] args)
+        public static void Test()
         {
             // 创建二维数组迷宫
             int[,] map = new int[8, 7];

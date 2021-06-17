@@ -6,14 +6,14 @@ namespace DataStruct.Queue
 {
     public class ArrayQueueDemo
     {
-        static void Main(string[] args)
+        public static void Test()
         {
             ArrayQueue aq = new ArrayQueue(3);
             aq.Enqueue(1);
             aq.Enqueue(2);
             aq.Enqueue(3);
             aq.Dequeue();
-            Console.WriteLine( aq.Head());
+            Console.WriteLine(aq.Head());
             aq.Dequeue();
             aq.Dequeue();
             aq.Enqueue(100);

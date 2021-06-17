@@ -6,9 +6,9 @@ namespace DataStruct.Stack
 {
     public class Calculator
     {
-        public static void Main(string[] args)
+        public static void Test()
         {
-            string expression = "800+2*6-20";
+            string expression = "30*2-6*9+1";
             ArrayStack2 numStack = new ArrayStack2(10);
             ArrayStack2 operStack = new ArrayStack2(10);
             int index = 0;
@@ -48,13 +48,14 @@ namespace DataStruct.Stack
                 else
                 {
                     keepNum += ch;
-                    if(index == expression.Length - 1)
+                    if (index == expression.Length - 1)
                     {
                         numStack.Push(int.Parse(keepNum));
                     }
                     else
                     {
-                        if (operStack.IsOper(Char.Parse(expression.Substring(index + 1, 1)))){
+                        if (operStack.IsOper(Char.Parse(expression.Substring(index + 1, 1))))
+                        {
                             numStack.Push(int.Parse(keepNum));
                             keepNum = "";
                         }
@@ -82,6 +83,7 @@ namespace DataStruct.Stack
 
             Console.WriteLine(expression + " = " + numStack.Pop());
         }
+
     }
 
     class ArrayStack2

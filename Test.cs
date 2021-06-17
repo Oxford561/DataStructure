@@ -1,10 +1,14 @@
-# DataStructure
-C# 代码 实现数据结构
+﻿using DataStruct.LinkedList;
+using DataStruct.Queue;
+using DataStruct.Recursion;
+using DataStruct.Sort;
+using DataStruct.Stack;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-目前完成的代码：
-
-```
-
+namespace DataStruct
+{
     public class Test
     {
         public static void Main(string[] args)
@@ -61,6 +65,4 @@ C# 代码 实现数据结构
             //QuickSort.Test();
         }
     }
-
-
-```
+}

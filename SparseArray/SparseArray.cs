@@ -6,20 +6,20 @@ namespace DataStruct.SparseArray
 {
     public class SparseArray
     {
-        static void Main(string[] args)
+        public static void Test()
         {
             //创建一个原始的二维数组 11*11
             // 0 :没有棋子，1：黑子  2：蓝子
-            int [,] chessArr1 = new int[11,11];
-            chessArr1[1,2] = 1;
+            int[,] chessArr1 = new int[11, 11];
+            chessArr1[1, 2] = 1;
             chessArr1[2, 3] = 2;
             Console.WriteLine("原始的二维数组：");
             //输出原始的二维数组
             for (int i = 0; i < 11; i++)
             {
-                for (int j = 0; j < 11 ; j++)
+                for (int j = 0; j < 11; j++)
                 {
-                    Console.Write(" "+chessArr1[i, j]);
+                    Console.Write(" " + chessArr1[i, j]);
                 }
                 Console.WriteLine("");
             }
@@ -31,7 +31,7 @@ namespace DataStruct.SparseArray
             {
                 for (int j = 0; j < 11; j++)
                 {
-                    if(chessArr1[i,j] != 0)
+                    if (chessArr1[i, j] != 0)
                     {
                         sum++;
                     }
@@ -50,7 +50,7 @@ namespace DataStruct.SparseArray
             {
                 for (int j = 0; j < 11; j++)
                 {
-                    if(chessArr1[i,j] != 0)
+                    if (chessArr1[i, j] != 0)
                     {
                         count++;
                         sparseArr[count, 0] = i;
@@ -62,9 +62,9 @@ namespace DataStruct.SparseArray
 
             //输出稀疏数组
             Console.WriteLine("得到的稀疏数组为：");
-            for (int i = 0; i < count+1; i++)
+            for (int i = 0; i < count + 1; i++)
             {
-                Console.WriteLine(sparseArr[i,0]+"  "+sparseArr[i,1]+"  "+sparseArr[i,2]);
+                Console.WriteLine(sparseArr[i, 0] + "  " + sparseArr[i, 1] + "  " + sparseArr[i, 2]);
             }
 
             //===========================
@@ -73,23 +73,21 @@ namespace DataStruct.SparseArray
             int[,] chessArr2 = new int[sparseArr[0, 0], sparseArr[0, 1]];
 
             //2、在读取稀疏数组后几行数据赋予原始的二维数组
-            for (int i = 1; i < count+1; i++)
+            for (int i = 1; i < count + 1; i++)
             {
                 chessArr2[sparseArr[i, 0], sparseArr[i, 1]] = sparseArr[i, 2];
             }
 
             //输出恢复后的二维数组
             Console.WriteLine("恢复后的二维数组：");
-            for(int i = 0; i < sparseArr[0,0]; i++)
+            for (int i = 0; i < sparseArr[0, 0]; i++)
             {
                 for (int j = 0; j < sparseArr[0, 1]; j++)
                 {
-                    Console.Write(" "+chessArr2[i, j]);
+                    Console.Write(" " + chessArr2[i, j]);
                 }
                 Console.WriteLine();
             }
-
-
         }
     }
 }

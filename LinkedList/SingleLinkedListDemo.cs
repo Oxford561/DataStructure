@@ -6,7 +6,7 @@ namespace DataStruct.LinkedList
 {
     public class SingleLinkedListDemo
     {
-        static void Main(string[] args)
+        public static void Test()
         {
             HeroNode node1 = new HeroNode(1, "宋江", "及时雨");
             HeroNode node2 = new HeroNode(2, "卢俊义", "玉麒麟");
@@ -24,7 +24,7 @@ namespace DataStruct.LinkedList
             sll.InsertByOrder(node2);
             sll.InsertByOrder(node3);
 
-            sll.Update(new HeroNode(3,"小林冲", "豹子头"));
+            sll.Update(new HeroNode(3, "小林冲", "豹子头"));
             //sll.Delete(4);
             sll.Show();
             //Console.WriteLine("单链表的长度："+ sll.Size());

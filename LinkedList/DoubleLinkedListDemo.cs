@@ -6,7 +6,7 @@ namespace DataStruct.LinkedList
 {
     public class DoubleLinkedListDemo
     {
-        static void Main(string[] args)
+        public static void Test()
         {
             HeroNode2 node1 = new HeroNode2(1, "宋江", "及时雨");
             HeroNode2 node2 = new HeroNode2(2, "卢俊义", "玉麒麟");
