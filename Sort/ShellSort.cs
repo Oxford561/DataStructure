@@ -22,7 +22,10 @@ namespace DataStruct.Sort
             //                temp = arr[j];
             //                arr[j] = arr[j + gap];
             //                arr[j + gap] = temp;
-            //            }
+            //            }else{
+            //                  break;
+            //              }
+            //                  
             //        }
             //    }
             //}
@@ -34,15 +37,15 @@ namespace DataStruct.Sort
                 {
                     int j = i;
                     temp = arr[j];
-                    if (arr[j] < arr[j - gap])
-                    {
+                    //if (arr[j] < arr[j - gap])
+                    //{
                         while(j-gap >=0 && temp < arr[j - gap])
                         {
                             arr[j] = arr[j - gap];
                             j -= gap;
                         }
                         arr[j] = temp;
-                    }
+                    //}
                 }
             }
 
