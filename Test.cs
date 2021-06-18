@@ -65,6 +65,9 @@ namespace DataStruct
             // 快速排序
             //QuickSort.Test();
 
+            // 线性查找
+            //SeqSearch.Test();
+
             // 二分查找
             //BinarySearch.Test();
         }
