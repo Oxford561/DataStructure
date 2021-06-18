@@ -70,6 +70,9 @@ namespace DataStruct
 
             // 二分查找
             //BinarySearch.Test();
+
+            // 插值查找
+            //InsertValueSearch.Test();
         }
     }
 }

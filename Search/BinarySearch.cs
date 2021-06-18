@@ -23,7 +23,7 @@ namespace DataStruct.Search
         public static int binarySearch(int[] arr,int left,int right,int findVal)
         {
             // left > right 递归结束
-            if (left > right)
+            if (left > right || findVal < arr[0] || findVal > arr[arr.Length - 1])
             {
                 return -1;
             }
