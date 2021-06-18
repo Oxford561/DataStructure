@@ -59,6 +59,9 @@ C# 代码 实现数据结构
 
             // 快速排序
             //QuickSort.Test();
+
+            // 二分查找
+            //BinarySearch.Test();
         }
     }
 

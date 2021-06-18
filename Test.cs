@@ -1,6 +1,7 @@
 ﻿using DataStruct.LinkedList;
 using DataStruct.Queue;
 using DataStruct.Recursion;
+using DataStruct.Search;
 using DataStruct.Sort;
 using DataStruct.Stack;
 using System;
@@ -63,6 +64,9 @@ namespace DataStruct
 
             // 快速排序
             //QuickSort.Test();
+
+            // 二分查找
+            //BinarySearch.Test();
         }
     }
 }
