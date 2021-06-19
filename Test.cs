@@ -1,4 +1,5 @@
-﻿using DataStruct.LinkedList;
+﻿using DataStruct.HashTab;
+using DataStruct.LinkedList;
 using DataStruct.Queue;
 using DataStruct.Recursion;
 using DataStruct.Search;
@@ -73,6 +74,9 @@ namespace DataStruct
 
             // 插值查找
             //InsertValueSearch.Test();
+
+            // 哈希表
+            //HashTabDemo.Test();
         }
     }
 }

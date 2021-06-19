@@ -24,3 +24,16 @@ C:\Users\wb.liujin01\Desktop\Code\DataStructure\bin\Debug\netcoreapp3.1\DataStru
 C:\Users\wb.liujin01\Desktop\Code\DataStructure\bin\Debug\netcoreapp3.1\DataStruct.dll
 C:\Users\wb.liujin01\Desktop\Code\DataStructure\bin\Debug\netcoreapp3.1\DataStruct.pdb
 C:\Users\wb.liujin01\Desktop\Code\DataStructure\obj\Debug\netcoreapp3.1\DataStruct.genruntimeconfig.cache
+C:\Users\20686\Desktop\Code\DataStructure\bin\Debug\netcoreapp3.1\DataStruct.exe
+C:\Users\20686\Desktop\Code\DataStructure\bin\Debug\netcoreapp3.1\DataStruct.deps.json
+C:\Users\20686\Desktop\Code\DataStructure\bin\Debug\netcoreapp3.1\DataStruct.runtimeconfig.json
+C:\Users\20686\Desktop\Code\DataStructure\bin\Debug\netcoreapp3.1\DataStruct.runtimeconfig.dev.json
+C:\Users\20686\Desktop\Code\DataStructure\bin\Debug\netcoreapp3.1\DataStruct.dll
+C:\Users\20686\Desktop\Code\DataStructure\bin\Debug\netcoreapp3.1\DataStruct.pdb
+C:\Users\20686\Desktop\Code\DataStructure\obj\Debug\netcoreapp3.1\DataStruct.csprojAssemblyReference.cache
+C:\Users\20686\Desktop\Code\DataStructure\obj\Debug\netcoreapp3.1\DataStruct.AssemblyInfoInputs.cache
+C:\Users\20686\Desktop\Code\DataStructure\obj\Debug\netcoreapp3.1\DataStruct.AssemblyInfo.cs
+C:\Users\20686\Desktop\Code\DataStructure\obj\Debug\netcoreapp3.1\DataStruct.csproj.CoreCompileInputs.cache
+C:\Users\20686\Desktop\Code\DataStructure\obj\Debug\netcoreapp3.1\DataStruct.dll
+C:\Users\20686\Desktop\Code\DataStructure\obj\Debug\netcoreapp3.1\DataStruct.pdb
+C:\Users\20686\Desktop\Code\DataStructure\obj\Debug\netcoreapp3.1\DataStruct.genruntimeconfig.cache

@@ -68,6 +68,9 @@ C# 代码 实现数据结构
 
             // 插值查找
             //InsertValueSearch.Test();
+
+            // 哈希表
+            //HashTabDemo.Test();
         }
     }
 
