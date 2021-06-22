@@ -5,6 +5,7 @@ using DataStruct.Recursion;
 using DataStruct.Search;
 using DataStruct.Sort;
 using DataStruct.Stack;
+using DataStruct.Tree;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -77,6 +78,9 @@ namespace DataStruct
 
             // 哈希表
             //HashTabDemo.Test();
+
+            // 二叉树前序中序后序遍历
+            //BinaryTreeDemo.Test();
         }
     }
 }
