@@ -30,6 +30,8 @@ namespace DataStruct.Tree
             Console.WriteLine(bt.InfixOrderSearch(2));
             Console.WriteLine("后序查找:");
             Console.WriteLine(bt.PostOrderSearch(3));
+            bt.DelNode(3);
+            Console.WriteLine(bt.InfixOrderSearch(4));
         }
     }
 
@@ -83,7 +85,7 @@ namespace DataStruct.Tree
         // 前序查找
         public HeroNode PreOrderSearch(int no)
         {
-            if(root != null)
+            if (root != null)
             {
                 return root.PreOrderSearch(no);
             }
@@ -118,11 +120,30 @@ namespace DataStruct.Tree
                 return null;
             }
         }
+
+        public void DelNode(int no)
+        {
+            if(this.root != null)
+            {
+                if (this.root.no == no)
+                {
+                    root = null;
+                }
+                else
+                {
+                    root.DelNode(no);
+                }
+            }
+            else
+            {
+                Console.WriteLine("空树不能删除！");
+            }
+        }
     }
 
     class HeroNode
     {
-        private int no;
+        public int no;
         private string name;
         public HeroNode left;
         public HeroNode right;
@@ -189,7 +210,7 @@ namespace DataStruct.Tree
         // 前序查找
         public HeroNode PreOrderSearch(int no)
         {
-            if(this.no == no)
+            if (this.no == no)
             {
                 return this;
             }
@@ -198,7 +219,7 @@ namespace DataStruct.Tree
             {
                 resNode = this.left.PreOrderSearch(no);
             }
-            if(resNode != null)
+            if (resNode != null)
             {
                 return resNode;
             }
@@ -214,19 +235,19 @@ namespace DataStruct.Tree
         public HeroNode InfixOrderSearch(int no)
         {
             HeroNode resNode = null;
-            if(this.left != null)
+            if (this.left != null)
             {
                 resNode = this.left.InfixOrderSearch(no);
             }
-            if(resNode != null)
+            if (resNode != null)
             {
                 return resNode;
             }
-            if(this.no == no)
+            if (this.no == no)
             {
                 return this;
             }
-            if(this.right != null)
+            if (this.right != null)
             {
                 resNode = this.right.InfixOrderSearch(no);
             }
@@ -258,6 +279,31 @@ namespace DataStruct.Tree
                 return this;
             }
             return resNode;
+        }
+
+        // 删除节点（叶子节点直接删除，非叶子节点删子树）
+        public void DelNode(int no)
+        {
+            if (this.left != null && this.left.no == no)
+            {
+                this.left = null;
+                return;
+            }
+
+            if (this.right != null && this.right.no == no)
+            {
+                this.right = null;
+                return;
+            }
+
+            if(this.left != null)
+            {
+                this.left.DelNode(no);
+            }
+            if(this.right != null)
+            {
+                this.right.DelNode(no);
+            }
         }
     }
 }
