@@ -24,6 +24,12 @@ namespace DataStruct.Tree
             bt.InfixOrder();
             Console.WriteLine("后序遍历:");
             bt.PostOrder();
+            Console.WriteLine("前序查找:");
+            Console.WriteLine(bt.PreOrderSearch(1));
+            Console.WriteLine("中序查找:");
+            Console.WriteLine(bt.InfixOrderSearch(2));
+            Console.WriteLine("后序查找:");
+            Console.WriteLine(bt.PostOrderSearch(3));
         }
     }
 
@@ -71,6 +77,45 @@ namespace DataStruct.Tree
             else
             {
                 Console.WriteLine("二叉树为空无法遍历");
+            }
+        }
+
+        // 前序查找
+        public HeroNode PreOrderSearch(int no)
+        {
+            if(root != null)
+            {
+                return root.PreOrderSearch(no);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        // 中序查找
+        public HeroNode InfixOrderSearch(int no)
+        {
+            if (root != null)
+            {
+                return root.InfixOrderSearch(no);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        // 后序查找
+        public HeroNode PostOrderSearch(int no)
+        {
+            if (root != null)
+            {
+                return root.PostOrderSearch(no);
+            }
+            else
+            {
+                return null;
             }
         }
     }
@@ -139,6 +184,80 @@ namespace DataStruct.Tree
                 this.right.PostOrder();
             }
             Console.WriteLine(this);
+        }
+
+        // 前序查找
+        public HeroNode PreOrderSearch(int no)
+        {
+            if(this.no == no)
+            {
+                return this;
+            }
+            HeroNode resNode = null;
+            if (this.left != null)
+            {
+                resNode = this.left.PreOrderSearch(no);
+            }
+            if(resNode != null)
+            {
+                return resNode;
+            }
+
+            if (this.right != null)
+            {
+                resNode = this.right.PreOrderSearch(no);
+            }
+            return resNode;
+        }
+
+        // 中序查找
+        public HeroNode InfixOrderSearch(int no)
+        {
+            HeroNode resNode = null;
+            if(this.left != null)
+            {
+                resNode = this.left.InfixOrderSearch(no);
+            }
+            if(resNode != null)
+            {
+                return resNode;
+            }
+            if(this.no == no)
+            {
+                return this;
+            }
+            if(this.right != null)
+            {
+                resNode = this.right.InfixOrderSearch(no);
+            }
+            return resNode;
+        }
+
+        // 后序查找
+        public HeroNode PostOrderSearch(int no)
+        {
+            HeroNode resNode = null;
+            if (this.left != null)
+            {
+                resNode = this.left.PostOrderSearch(no);
+            }
+            if (resNode != null)
+            {
+                return resNode;
+            }
+            if (this.right != null)
+            {
+                resNode = this.right.PostOrderSearch(no);
+            }
+            if (resNode != null)
+            {
+                return resNode;
+            }
+            if (this.no == no)
+            {
+                return this;
+            }
+            return resNode;
         }
     }
 }
