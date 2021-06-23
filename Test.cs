@@ -80,7 +80,10 @@ namespace DataStruct
             //HashTabDemo.Test();
 
             // 二叉树前序中序后序遍历
-            BinaryTreeDemo.Test();
+            //BinaryTreeDemo.Test();
+
+            // 顺序存储二叉树
+            //ArrayBinaryTreeDemo.Test();
         }
     }
 }

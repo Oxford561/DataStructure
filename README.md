@@ -71,6 +71,12 @@ C# 代码 实现数据结构
 
             // 哈希表
             //HashTabDemo.Test();
+
+             // 二叉树前序中序后序遍历
+            //BinaryTreeDemo.Test();
+
+            // 顺序存储二叉树
+            //ArrayBinaryTreeDemo.Test();
         }
     }
 
