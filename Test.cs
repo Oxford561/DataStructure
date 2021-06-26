@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using DataStruct.HuffManTree;
+using DataStruct.HuffmanCode;
 
 namespace DataStruct
 {
@@ -93,7 +94,10 @@ namespace DataStruct
             //HeapSort.Test();
 
             //赫夫曼树
-            HuffManTreeDemo.Test();
+            //HuffManTreeDemo.Test();
+
+            //赫夫曼编码
+            HuffmanCodeDemo.Test();
         }
     }
 }
