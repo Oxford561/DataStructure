@@ -4,41 +4,75 @@ using System.Text;
 
 namespace DataStruct.Tree
 {
-    public class BinaryTreeDemo
+    // 线索二叉树
+    public class ThreadedBinaryTreeDemo
     {
         public static void Test()
         {
-            BinaryTree bt = new BinaryTree();
-            HeroNode root = new HeroNode(1, "宋江");
-            HeroNode hero2 = new HeroNode(2, "吴用");
-            HeroNode hero3 = new HeroNode(3, "卢俊义");
-            HeroNode hero4 = new HeroNode(4, "林冲");
+            HeroNode2 root = new HeroNode2(1, "宋江");
+            HeroNode2 hero2 = new HeroNode2(3, "吴用");
+            HeroNode2 hero3 = new HeroNode2(6, "卢俊义");
+            HeroNode2 hero4 = new HeroNode2(8, "林冲");
+            HeroNode2 hero5 = new HeroNode2(10, "林冲X");
+            HeroNode2 hero6 = new HeroNode2(14, "林冲XX");
 
             root.left = hero2;
             root.right = hero3;
-            hero3.right = hero4;
-            bt.SetRoot(root);
-            Console.WriteLine("前序遍历:");
-            bt.PreOrder();
-            Console.WriteLine("中序遍历:");
-            bt.InfixOrder();
-            Console.WriteLine("后序遍历:");
-            bt.PostOrder();
-            Console.WriteLine("前序查找:");
-            Console.WriteLine(bt.PreOrderSearch(1));
-            Console.WriteLine("中序查找:");
-            Console.WriteLine(bt.InfixOrderSearch(2));
-            Console.WriteLine("后序查找:");
-            Console.WriteLine(bt.PostOrderSearch(3));
-            bt.DelNode(3);
-            Console.WriteLine(bt.InfixOrderSearch(4));
+            hero2.left = hero4;
+            hero2.right = hero5;
+            hero3.left = hero6;
+
+            ThreadedBinaryTree tbt = new ThreadedBinaryTree();
+            tbt.SetRoot(root);
+            tbt.ThreadedNodes();
+
+            // 1 3 6 8 10 14 =》 8 3 10 1 14 6
+            Console.WriteLine("10号的前驱节点是 "+hero5.left.no); 
+            Console.WriteLine("10号的后继节点是 " + hero5.right.no);
         }
     }
 
-    class BinaryTree
+    // 线索化二叉树
+    class ThreadedBinaryTree
     {
-        public HeroNode root;
-        public void SetRoot(HeroNode root)
+        public HeroNode2 pre = null;
+        public HeroNode2 root = null;
+
+        public void ThreadedNodes()
+        {
+            this.ThreadedNodes(this.root);
+        }
+
+        // 中序线索化
+        public void ThreadedNodes(HeroNode2 node)
+        {
+            if(node == null)
+            {
+                return;
+            }
+
+            // 先线索化左子树
+            ThreadedNodes(node.left);
+            // 线索化当前节点
+            if(node.left == null)
+            {
+                node.left = pre;
+                node.leftType = 1;
+            }
+            if(pre != null && pre.right == null)
+            {
+                pre.right = node;
+                pre.rightType = 1;
+            }
+
+            pre = node;
+
+            // 线索化右子树
+            ThreadedNodes(node.right);
+        }
+
+        
+        public void SetRoot(HeroNode2 root)
         {
             this.root = root;
         }
@@ -83,7 +117,7 @@ namespace DataStruct.Tree
         }
 
         // 前序查找
-        public HeroNode PreOrderSearch(int no)
+        public HeroNode2 PreOrderSearch(int no)
         {
             if (root != null)
             {
@@ -96,7 +130,7 @@ namespace DataStruct.Tree
         }
 
         // 中序查找
-        public HeroNode InfixOrderSearch(int no)
+        public HeroNode2 InfixOrderSearch(int no)
         {
             if (root != null)
             {
@@ -109,7 +143,7 @@ namespace DataStruct.Tree
         }
 
         // 后序查找
-        public HeroNode PostOrderSearch(int no)
+        public HeroNode2 PostOrderSearch(int no)
         {
             if (root != null)
             {
@@ -123,7 +157,7 @@ namespace DataStruct.Tree
 
         public void DelNode(int no)
         {
-            if(this.root != null)
+            if (this.root != null)
             {
                 if (this.root.no == no)
                 {
@@ -140,14 +174,17 @@ namespace DataStruct.Tree
             }
         }
     }
-
-    class HeroNode
+    class HeroNode2
     {
         public int no;
         private string name;
-        public HeroNode left;
-        public HeroNode right;
-        public HeroNode(int no, string name)
+        public HeroNode2 left;
+        public HeroNode2 right;
+        //0:左子树，1：前驱节点
+        public int leftType;
+        //0:右子树，1：后继节点
+        public int rightType;
+        public HeroNode2(int no, string name)
         {
             this.no = no;
             this.name = name;
@@ -208,13 +245,13 @@ namespace DataStruct.Tree
         }
 
         // 前序查找
-        public HeroNode PreOrderSearch(int no)
+        public HeroNode2 PreOrderSearch(int no)
         {
             if (this.no == no)
             {
                 return this;
             }
-            HeroNode resNode = null;
+            HeroNode2 resNode = null;
             if (this.left != null)
             {
                 resNode = this.left.PreOrderSearch(no);
@@ -232,9 +269,9 @@ namespace DataStruct.Tree
         }
 
         // 中序查找
-        public HeroNode InfixOrderSearch(int no)
+        public HeroNode2 InfixOrderSearch(int no)
         {
-            HeroNode resNode = null;
+            HeroNode2 resNode = null;
             if (this.left != null)
             {
                 resNode = this.left.InfixOrderSearch(no);
@@ -255,9 +292,9 @@ namespace DataStruct.Tree
         }
 
         // 后序查找
-        public HeroNode PostOrderSearch(int no)
+        public HeroNode2 PostOrderSearch(int no)
         {
-            HeroNode resNode = null;
+            HeroNode2 resNode = null;
             if (this.left != null)
             {
                 resNode = this.left.PostOrderSearch(no);
@@ -296,11 +333,11 @@ namespace DataStruct.Tree
                 return;
             }
 
-            if(this.left != null)
+            if (this.left != null)
             {
                 this.left.DelNode(no);
             }
-            if(this.right != null)
+            if (this.right != null)
             {
                 this.right.DelNode(no);
             }

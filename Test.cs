@@ -84,6 +84,9 @@ namespace DataStruct
 
             // 顺序存储二叉树
             //ArrayBinaryTreeDemo.Test();
+
+            // 中序线索化二叉树
+            //ThreadedBinaryTreeDemo.Test();
         }
     }
 }

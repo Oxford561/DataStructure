@@ -30,7 +30,7 @@ namespace DataStruct.Tree
 
         public void PreOrder()
         {
-            this.PreOrder(0)
+            this.PreOrder(0);
         }
 
         // index 数组的下标
