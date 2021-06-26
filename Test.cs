@@ -87,6 +87,9 @@ namespace DataStruct
 
             // 中序线索化二叉树
             //ThreadedBinaryTreeDemo.Test();
+
+            // 堆排序
+            //HeapSort.Test();
         }
     }
 }

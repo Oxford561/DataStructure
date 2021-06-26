@@ -80,6 +80,9 @@ C# 代码 实现数据结构
 
             // 中序线索化二叉树
             //ThreadedBinaryTreeDemo.Test();
+
+            // 堆排序
+            //HeapSort.Test();
         }
     }
 

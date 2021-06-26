@@ -29,6 +29,9 @@ namespace DataStruct.Tree
             // 1 3 6 8 10 14 =》 8 3 10 1 14 6
             Console.WriteLine("10号的前驱节点是 "+hero5.left.no); 
             Console.WriteLine("10号的后继节点是 " + hero5.right.no);
+
+            Console.WriteLine("中序线索化遍历");
+            tbt.ThreadedList();
         }
     }
 
@@ -38,6 +41,30 @@ namespace DataStruct.Tree
         public HeroNode2 pre = null;
         public HeroNode2 root = null;
 
+        // 中序线索化二叉树遍历
+        public void ThreadedList()
+        {
+            HeroNode2 node = root;
+            while(node != null)
+            {
+                while(node.leftType == 0)
+                {
+                    node = node.left;
+                }
+                
+                Console.WriteLine(node);
+                
+                while(node.rightType == 1)
+                {
+                    node = node.right;
+                    Console.WriteLine(node);
+                }
+
+                node = node.right;
+            }
+        }
+
+        // 中序线索化
         public void ThreadedNodes()
         {
             this.ThreadedNodes(this.root);
