@@ -4,20 +4,63 @@ using System.Text;
 
 namespace DataStruct.HuffmanCode
 {
+    // 赫夫曼树的应用（压缩解压）
     public class HuffmanCodeDemo
     {
         public static void Test()
         {
+            // 完成赫夫曼树的创建
             string content = "i like like like java do you like a java";
             byte[] contentBytes = System.Text.Encoding.Default.GetBytes(content);
             Console.WriteLine(content.Length);
             List<Node> lst = GetNodes(contentBytes);
-            //foreach (var item in lst)
-            //{
-            //    Console.WriteLine(item);
-            //}
             Node root = CreateHuffmanTree(lst);
             root.PreOrder();
+            // 生成哈夫曼编码表
+            Dictionary<Byte, string> huffmanCodeList =  GetCodes(root);
+            foreach (var item in huffmanCodeList)
+            {
+                Console.Write(item.Key+":"+item.Value+"  ");
+            }
+        }
+
+        // 生成赫夫曼编码表
+        public static Dictionary<Byte, string> huffmanCodes = new Dictionary<byte, string>();
+        public static StringBuilder sb = new StringBuilder();
+
+        public static Dictionary<Byte, string> GetCodes(Node node)
+        {
+            if(node == null)
+            {
+                return null;
+            }
+            else
+            {
+                GetCodes(node.left, "0", sb);
+                GetCodes(node.right, "1", sb);
+            }
+
+            return huffmanCodes;
+        }
+
+        // 将传入的 node 所有叶子节点的赫夫曼编码存放到 Dic
+        public static void GetCodes(Node node,string code,StringBuilder stringBuilder)
+        {
+            StringBuilder sb2 = new StringBuilder(stringBuilder.ToString());
+            sb2.Append(code);
+            if(node != null)
+            {
+                if(node.data == 0)
+                {
+                    GetCodes(node.left, "0", sb2);
+                    GetCodes(node.right, "1", sb2);
+                }
+                else
+                {
+                    // 叶子节点
+                    huffmanCodes[node.data] = sb2.ToString();
+                }
+            }
         }
 
         private static List<Node> GetNodes(byte[] bytes)
