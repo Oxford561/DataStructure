@@ -83,6 +83,9 @@ C# 代码 实现数据结构
 
             // 堆排序
             //HeapSort.Test();
+
+            //赫夫曼树
+            //HuffManTreeDemo.Test();
         }
     }
 

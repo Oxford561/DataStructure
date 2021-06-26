@@ -9,6 +9,7 @@ using DataStruct.Tree;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using DataStruct.HuffManTree;
 
 namespace DataStruct
 {
@@ -90,6 +91,9 @@ namespace DataStruct
 
             // 堆排序
             //HeapSort.Test();
+
+            //赫夫曼树
+            HuffManTreeDemo.Test();
         }
     }
 }
