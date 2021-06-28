@@ -21,8 +21,21 @@ namespace DataStruct.HuffmanCode
             Dictionary<Byte, string> huffmanCodeList = GetCodes(root);
             // 转换成压缩字节
             byte[] huffmanCodeBytes = Zip(contentBytes, huffmanCodeList);
-            Console.WriteLine(huffmanCodeBytes.Length);
+
+            //Console.WriteLine(ByteToBitString((byte)-1);
         }
+
+        #region 解压
+
+        public static string ByteToBitString(byte b)
+        {
+            int temp = b;
+            string str = Convert.ToString(temp, 2);
+            return str;
+        }
+
+        #endregion
+
 
         // 将字符串对于的byte[] 通过生成的赫夫曼编码表返回赫夫曼编码压缩后的byte[]
         /// <summary>

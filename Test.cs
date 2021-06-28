@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Text;
 using DataStruct.HuffManTree;
 using DataStruct.HuffmanCode;
+using DataStruct.BinarySortTree;
 
 namespace DataStruct
 {
@@ -97,7 +98,10 @@ namespace DataStruct
             //HuffManTreeDemo.Test();
 
             //赫夫曼编码
-            HuffmanCodeDemo.Test();
+            //HuffmanCodeDemo.Test();
+
+            //二叉排序树
+            BinarySortTreeDemo.Test();
         }
     }
 }
