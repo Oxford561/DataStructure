@@ -100,8 +100,8 @@ namespace DataStruct
             //赫夫曼编码
             //HuffmanCodeDemo.Test();
 
-            //二叉排序树
-            BinarySortTreeDemo.Test();
+            //二叉排序树，删除节点
+            //BinarySortTreeDemo.Test();
         }
     }
 }

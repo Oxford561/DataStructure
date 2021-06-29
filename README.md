@@ -86,6 +86,12 @@ C# 代码 实现数据结构
 
             //赫夫曼树
             //HuffManTreeDemo.Test();
+
+            //赫夫曼编码
+            //HuffmanCodeDemo.Test();
+
+            //二叉排序树，删除节点
+            //BinarySortTreeDemo.Test();
         }
     }
 
