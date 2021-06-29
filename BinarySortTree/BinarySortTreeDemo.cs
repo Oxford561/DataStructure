@@ -138,29 +138,45 @@ namespace DataStruct.BinarySortTree
                     // 删除只有一个子节点的节点 是有左子节点
                     if(targetNode.left != null)
                     {
-                        // targetNode 是左子节点
-                        if(parent.left .value == value)
+                        if(parent != null)
                         {
-                            parent.left = targetNode.left;
+                            // targetNode 是左子节点
+                            if (parent.left.value == value)
+                            {
+                                parent.left = targetNode.left;
+                            }
+                            else
+                            {
+                                // targetNode 是右子节点
+                                parent.right = targetNode.left;
+                            }
                         }
                         else
                         {
-                            // targetNode 是右子节点
-                            parent.right = targetNode.left;
+                            // 如果删除的是只有一个左子节点的根节点
+                            root = targetNode.left;
                         }
                     }
                     else
                     {
-                        // 删除的节点只有一个右子节点
-                        if(parent.left.value == value)
+                        if(parent != null)
                         {
-                            // targetNode 是左子节点
-                            parent.left = targetNode.right;
+                            // 删除的节点只有一个右子节点
+                            if (parent.left.value == value)
+                            {
+                                // targetNode 是左子节点
+                                parent.left = targetNode.right;
+                            }
+                            else
+                            {
+                                // targetNode 是右子节点
+                                parent.right = targetNode.right;
+                            }
                         }
                         else
                         {
-                            // targetNode 是右子节点
-                            parent.right = targetNode.right;
+                            // 如果删除的是只有一个右子节点的根节点
+                            root = targetNode.right;
                         }
                     }
                 }
