@@ -12,6 +12,7 @@ using System.Text;
 using DataStruct.HuffManTree;
 using DataStruct.HuffmanCode;
 using DataStruct.BinarySortTree;
+using DataStruct.AVL;
 
 namespace DataStruct
 {
@@ -102,6 +103,9 @@ namespace DataStruct
 
             //二叉排序树，删除节点
             //BinarySortTreeDemo.Test();
+
+            // AVL 树
+            AVLTreeDemo.Test();
         }
     }
 }
