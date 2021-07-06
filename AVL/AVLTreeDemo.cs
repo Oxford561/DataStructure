@@ -8,7 +8,8 @@ namespace DataStruct.AVL
     {
         public static void Test()
         {
-            int[] arr = {4,3,6,5,7,8 };
+            //int[] arr = {4,3,6,5,7,8 };
+            int[] arr = { 10, 12, 8, 9, 7, 6 };
             AVLTree avlt = new AVLTree();
             for (int i = 0; i < arr.Length; i++)
             {
@@ -237,6 +238,17 @@ namespace DataStruct.AVL
             left = newNode;
         }
 
+        // 右旋转
+        public void RightRotate()
+        {
+            Node newNode = new Node(value);
+            newNode.right = right;
+            newNode.left = left.right;
+            value = left.value;
+            left = left.left;
+            right = newNode;
+        }
+
         // 查找需要删除的节点
         public Node Search(int value)
         {
@@ -334,6 +346,12 @@ namespace DataStruct.AVL
                 {
                     LeftRotate();
                 }
+            }
+
+            // 添加完 （左子树的高度 - 右子树的高度） 右边旋转
+            if((LeftHeight() - RightHeight()) > 1)
+            {
+                RightRotate();
             }
         }
 
