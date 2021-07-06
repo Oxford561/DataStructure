@@ -106,6 +106,9 @@ namespace DataStruct
 
             // AVL 树
             //AVLTreeDemo.Test();
+
+            // 图
+            Graph.Test();
         }
     }
 }
