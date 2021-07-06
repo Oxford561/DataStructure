@@ -92,6 +92,9 @@ C# 代码 实现数据结构
 
             //二叉排序树，删除节点
             //BinarySortTreeDemo.Test();
+
+            // AVL 树 左旋 右旋 双旋
+            //AVLTreeDemo.Test();
         }
     }
 

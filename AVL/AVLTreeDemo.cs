@@ -8,8 +8,9 @@ namespace DataStruct.AVL
     {
         public static void Test()
         {
-            //int[] arr = {4,3,6,5,7,8 };
-            int[] arr = { 10, 12, 8, 9, 7, 6 };
+            //int[] arr = {4,3,6,5,7,8 }; //左旋转测试
+            //int[] arr = { 10, 12, 8, 9, 7, 6 }; //右旋转测试
+            int[] arr = { 10, 11, 7, 6, 8, 9 };// 双旋转测试
             AVLTree avlt = new AVLTree();
             for (int i = 0; i < arr.Length; i++)
             {
@@ -19,9 +20,11 @@ namespace DataStruct.AVL
             Console.WriteLine("中序遍历：");
             avlt.InfixOrder();
             Console.WriteLine("平衡处理后");
-            Console.WriteLine("树的高度："+avlt.root.Height());
+            Console.WriteLine("树的高度：" + avlt.root.Height());
             Console.WriteLine("左子树的高度：" + avlt.root.LeftHeight());
             Console.WriteLine("右子树的高度：" + avlt.root.RightHeight());
+            Console.WriteLine("当前的根节点="+avlt.root);
+            Console.WriteLine("根节点的左子节点=" + avlt.root.left);
         }
     }
 
@@ -198,7 +201,7 @@ namespace DataStruct.AVL
         // 当前节点左子树高度
         public int LeftHeight()
         {
-            if(left == null)
+            if (left == null)
             {
                 return 0;
             }
@@ -340,18 +343,37 @@ namespace DataStruct.AVL
             }
 
             // 添加完，(右子树高度-左子树高度) > 1  左旋转
-            if((RightHeight() - LeftHeight()) > 1)
+            if ((RightHeight() - LeftHeight()) > 1)
             {
-                if(right != null && right.RightHeight() > right.LeftHeight())
+                // 如果它的右子树的左子树的高度大于它的右子树的右子树高度  进行右旋转
+                if (right != null && right.RightHeight() > right.LeftHeight())
+                {
+                    right.RightRotate();
+                    LeftRotate();
+                }
+                else
                 {
                     LeftRotate();
                 }
+                return;//终止一次节点
             }
 
             // 添加完 （左子树的高度 - 右子树的高度） 右边旋转
-            if((LeftHeight() - RightHeight()) > 1)
+            if ((LeftHeight() - RightHeight()) > 1)
             {
-                RightRotate();
+                // 如果它的左子树的右子树高度大于它的左子树高度
+                if (left != null && left.RightHeight() > left.LeftHeight())
+                {
+                    // 先对当前节点的左节点（左子树）进行左旋转
+                    left.LeftRotate();
+                    // 再对当前节点进行右旋转
+                    RightRotate();
+                }
+                else
+                {
+                    // 直接右旋转
+                    RightRotate();
+                }
             }
         }
 

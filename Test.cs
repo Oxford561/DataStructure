@@ -105,7 +105,7 @@ namespace DataStruct
             //BinarySortTreeDemo.Test();
 
             // AVL 树
-            AVLTreeDemo.Test();
+            //AVLTreeDemo.Test();
         }
     }
 }
