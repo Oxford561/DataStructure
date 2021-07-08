@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataStruct.Queue;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -80,6 +81,52 @@ namespace DataStruct.Graphs
 
         #endregion
 
+        #region 广度优先算法
+
+        public void BFS(bool[] isVisited,int i)
+        {
+            int u;// 表示队列的头节点
+            int w;// 邻接节点
+            // 队列 记录节点访问的顺序
+            ArrayQueue aq = new ArrayQueue(5);
+            Console.Write(GetValueByIndex(i) + "->");
+            isVisited[i] = true;
+            aq.Enqueue(i);
+            while(!aq.isEmpty())
+            {
+                u = aq.Dequeue();
+                w = GetFirstNeighbor(u);
+                while(w != -1)
+                {
+                    if (!isVisited[w])
+                    {
+                        Console.Write(GetValueByIndex(w) + "->");
+                        isVisited[w] = true;
+                        aq.Enqueue(w);
+                    }
+                    else
+                    {
+                        // 找w后一个邻接点
+                        w = GetNextNeighbor(u, w);// 广度优先
+                    }
+                }
+            }
+        }
+
+        public void BFS()
+        {
+            for (int i = 0; i <GetNumOfVertex(); i++)
+            {
+                if (!isVisited[i])
+                {
+                    BFS(isVisited, i);
+                }
+            }
+        }
+
+
+        #endregion
+
 
 
         //图中常用的方法
@@ -156,8 +203,11 @@ namespace DataStruct.Graphs
 
             graph.Show();
 
-            Console.WriteLine("深度遍历：");
-            graph.DFS();
+            //Console.WriteLine("深度优先遍历：");
+            //graph.DFS();
+
+            Console.WriteLine("广度优先遍历：");
+            graph.BFS();
         }
     }
 }
