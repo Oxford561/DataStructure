@@ -13,6 +13,7 @@ using DataStruct.HuffManTree;
 using DataStruct.HuffmanCode;
 using DataStruct.BinarySortTree;
 using DataStruct.AVL;
+using DataStruct.Graphs;
 
 namespace DataStruct
 {
